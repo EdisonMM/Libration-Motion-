@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 float k(float m, float M)
 {
@@ -21,14 +22,21 @@ float rM(float m, float M, float R){
 }
 
 
+float omega(float m, float M, float R, float G){
 
+    double R_cube = pow(R, 3);
+
+    float omega_squared = G * M/(R_cube * (1 - lamda(m, M)));
+
+    return pow(omega_squared, 0.5);
+}
 
 int main() {
 
     /* my first program in C */
     printf("Hello, World! \n");
 
-    float h = k(1, 2);
+    float h = omega(1, 2, 3, 6);
 
     printf("%.6f", h);
 
