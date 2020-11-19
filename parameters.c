@@ -30,15 +30,3 @@ float omega(float m, float M, float R, float G){
 
     return pow(omega_squared, 0.5);
 }
-
-int main() {
-
-    /* my first program in C */
-    printf("Hello, World! \n");
-
-    float h = omega(1, 2, 3, 6);
-
-    printf("%.6f", h);
-
-    return 0;
-}
