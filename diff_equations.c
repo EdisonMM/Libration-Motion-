@@ -1,4 +1,5 @@
-
+#include <math.h>
+#include "parameters.h"
 
 float S(float m, float M, float R, float r, float phi, float p, float l, float G){
 

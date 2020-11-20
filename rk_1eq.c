@@ -9,10 +9,11 @@ float dydx(float x, float y)
   
 // Finds value of y for a given x using step size h 
 // and initial value y0 at x0. 
+
 float rungeKutta(float x0, float y0, float x, float h) 
 { 
-    // Count number of iterations using step size or 
-    // step height h 
+    // Count number of iterations
+
     int n = (int)((x - x0) / h); 
   
     float k1, k2, k3, k4, k5; 
