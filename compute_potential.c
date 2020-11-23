@@ -34,7 +34,7 @@ int main(){
     N = 1000;
     h = 0.2;
 
-    float t_array[N], r_array[N], phi_array[N], p_array[N], l_array[N], U_array[N];
+    float t_array[N], r_array[N], phi_array[N], p_array[N], l_array[N], x_array[N], y_array[N], U_array[N];
 
     float dt = (tmax - t0)/N;
 
@@ -53,10 +53,12 @@ int main(){
         phi_array[i] = result[1];
         p_array[i] = result[2];
         l_array[i] = result[3];
+        x_array[i] = result[0] * cos(result[1]);
+        y_array[i] = result[0] * sin(result[1]);
         U_array[i] = potential(m, M, R, G, result[0], result[1], result[2], result[3]);
     }
 
-    write_results(N, t_array, r_array, phi_array, p_array, l_array, U_array);
+    write_results(N, t_array, r_array, phi_array, p_array, l_array, x_array, y_array, U_array);
 
     return 0;
 

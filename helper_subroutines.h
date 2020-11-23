@@ -1,1 +1,1 @@
-void write_results(int N, float t[], float r[], float phi[], float p[], float l[], float U[]);
+void write_results(int N, float t[], float r[], float phi[], float p[], float l[], float x[], float y[], float U[]);
