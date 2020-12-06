@@ -2,22 +2,13 @@
 #include "diff_equations.h"
 #include "helper_subroutines.h"
 #include "rungeKutta.h"
+#include "potential.h"
+#include "gradient.h"
 #include <math.h>
-
-//returns the dimensionless potetial
-float potential(float m, float M, float R, float G, float r, float phi, float p, float l){
-
-    float S_val = S(m, M, R, r, phi, p, l, G);
-    float s_val = s(m, M, R, r, phi, p, l, G);
-    float lamda_val = lamda(m, M);
-
-    return -2 * (1 - lamda_val) * (R/S_val) - 2*lamda_val*(R/s_val) - (pow(r,2)/pow(R,2));
-
-}
 
 int main(){
 
-    float t0, tmax, r0, phi0, p0, l0, m, M, R, G, h;
+    float t0, tmax, r0, phi0, p0, l0, m, M, R, G, h, xmin, xmax, ymin, ymax;
     int N;
 
     t0 = 0;
@@ -25,14 +16,18 @@ int main(){
     r0 = 1;
     phi0 = 0;
     p0 = 1;
-    l0 = 1;
+    l0 = 0;
     m = 1;
-    M = 100;
+    M = 10;
     R = 1;
     G = 6.67e-11;
     //Number of time steps
     N = 1000;
     h = 0.2;
+    xmin = -1.5;
+    ymin = -1.5;
+    xmax = 1.5;
+    ymax = 1.5;
 
     float t_array[N], r_array[N], phi_array[N], p_array[N], l_array[N], x_array[N], y_array[N], U_array[N];
 
@@ -59,6 +54,8 @@ int main(){
     }
 
     write_results(N, t_array, r_array, phi_array, p_array, l_array, x_array, y_array, U_array);
+    write_parameters(N, t0, tmax, r0, phi0, p0, l0, m, M, R, G, h);
+    compute_gradient(m, M, R, G, xmin, xmax, ymin, ymax, p0, l0, h);
 
     return 0;
 
