@@ -57,7 +57,7 @@ void rungeKutta(float m, float M, float R, float G, float t0, float r0, float ph
     results[0] = r;
     results[1] = phi;
     results[2] = p;
-    results[3] = p;
+    results[3] = l;
 
     return;
 
