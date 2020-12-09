@@ -4,8 +4,8 @@ R = 1;
 k = m/M;
 lambda = k/(1+k);
 
-x = linspace(-1.5,1.5);
-y = linspace(-1.5,1.5);
+x = linspace(-1.4,1.4);
+y = linspace(-1.4,1.4);
 
 [x,y] = meshgrid(x,y);
 S = sqrt(y.^2 + (x + lambda * R).^2);
@@ -32,7 +32,7 @@ y4 = R*sin(pi/3);
 x5 = x4;
 y5 = -y4;
 
-contourf(x, y, U, 3000, 'blue');
+contourf(x, y, U, 2000, 'blue');
 %text(0, 0, "0", 'FontWeight', 'bold', 'FontSize', 13, 'color', 'red');
 text(x1, y1, "\leftarrow L_1", 'FontWeight', 'bold', 'FontSize', 13, 'color', 'red');
 text(x2, y2, "\leftarrow L_2", 'FontWeight', 'bold', 'FontSize', 13, 'color', 'red');
@@ -50,7 +50,7 @@ hold on
 input_file = 'gradient_results.csv';
 T = readtable(input_file);
 
-contourf(x, y, U, 3000, 'blue');
+contourf(x, y, U, 2000, 'blue');
 %text(0, 0, "0", 'FontWeight', 'bold', 'FontSize', 13, 'color', 'red');
 text(x1, y1, "\leftarrow L_1", 'FontWeight', 'bold', 'FontSize', 13, 'color', 'red');
 text(x2, y2, "\leftarrow L_2", 'FontWeight', 'bold', 'FontSize', 13, 'color', 'red');
@@ -59,6 +59,14 @@ text(x4, y4, "\leftarrow L_4", 'FontWeight', 'bold', 'FontSize', 13, 'color', 'r
 text(x5, y5, "\leftarrow L_5", 'FontWeight', 'bold', 'FontSize', 13, 'color', 'red');
 
 
-quiver(T{:,1},T{:,2},T{:,3},T{:,4});
+q = quiver(T{:,1},T{:,2},T{:,3},T{:,4});
+q.Color = 'black';
+q.LineWidth = 3.0;
+q.MaxHeadSize = 8.50;
+q.MarkerSize = 12;
 
 hold off
+
+%%%%%%%%% NOW WE NEED TO PLOT THE STABLE ORBITS NEAR L4 AND L5
+
+

@@ -25,8 +25,10 @@ void gradient(float m, float M, float R, float G, float x, float y, float p, flo
     float gdx = (Ux2 - U)/h;
     float gdy = (Uy2 - U)/h;
 
-    gd[0] = gdx;
-    gd[1] = gdy;
+    float k = 10000000000;
+
+    gd[0] = -k*gdx;
+    gd[1] = -k*gdy;
 }
 
 void compute_gradient(float m, float M, float R, float G, float xmin, float xmax, float ymin, float ymax, float p, float l, float h)
@@ -45,8 +47,8 @@ void compute_gradient(float m, float M, float R, float G, float xmin, float xmax
     {
         for (int j = 0; j < ny; j++)
         {
-            float x = xmin + i*h;
-            float y = ymin + j*h;
+            float x = xmin + i*h + h;
+            float y = ymin + j*h + h;
             xarr[indx] = x;
             yarr[indx] = y;
 

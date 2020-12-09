@@ -1,11 +1,14 @@
-outpout:compute_potential.o parameters.o diff_equations.o helper_subroutines.o rungeKutta.o potential.o gradient.o -lm
-	gcc -o outpout compute_potential.o parameters.o diff_equations.o helper_subroutines.o rungeKutta.o potential.o gradient.o -lm
+outpout:compute_potential.o parameters.o diff_equations.o helper_subroutines.o rungeKutta.o potential.o gradient.o stable_orbits.o -lm
+	gcc -o outpout compute_potential.o parameters.o diff_equations.o helper_subroutines.o rungeKutta.o potential.o gradient.o stable_orbits.o -lm
 
-compute_potential.o:compute_potential.c parameters.c diff_equations.c helper_subroutines.c rungeKutta.c potential.c gradient.c
-	gcc -c -pedantic -Wall -lm compute_potential.c parameters.c diff_equations.c helper_subroutines.c rungeKutta.c potential.c gradient.c 
+compute_potential.o:compute_potential.c parameters.c diff_equations.c helper_subroutines.c rungeKutta.c potential.c gradient.c stable_orbits.c
+	gcc -c -pedantic -Wall -lm compute_potential.c parameters.c diff_equations.c helper_subroutines.c rungeKutta.c potential.c gradient.c  stable_orbits.c
 
 parameters.o:parameters.c
 	gcc -c -pednatic -Wall -lm parameters.c 
+
+stable_orbits.o:stable_orbits.c
+	gcc -c -pedantic -Wall -lm stable_orbits.c
 
 diff_equations.o:diff_equations.c parameters.c
 	gcc -c -pedantic -Wall -lm diff_equations.c parameters.c 

@@ -1,0 +1,2 @@
+void l4_orbit(float x, float y, float epsilon, float m, float M, float R, float G, float t0, float tmax, int N, float h);
+void l5_orbit(float x, float y, float epsilon, float m, float M, float R, float G, float t0, float tmax, int N, float h);
