@@ -1,0 +1,2 @@
+void gradient(float m, float M, float R, float G, float x, float y, float p, float l, float h, float gd[]);
+void compute_gradient(float m, float M, float R, float G, float xmin, float xmax, float ymin, float ymax, float p, float l, float h);

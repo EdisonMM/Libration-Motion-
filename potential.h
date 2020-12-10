@@ -1,0 +1,1 @@
+float potential(float m, float M, float R, float G, float r, float phi, float p, float l);
