@@ -24,9 +24,11 @@ float rM(float m, float M, float R){
 
 float omega(float m, float M, float R, float G){
 
-    double R_cube = pow(R, 3);
+    //double R_cube = pow(R, 3);
 
-    float omega_squared = G * M/(R_cube * (1 - lamda(m, M)));
+    //float omega_squared = G * M/(R_cube * (1 - lamda(m, M)));
 
-    return pow(omega_squared, 0.5);
+    //return pow(omega_squared, 0.5);
+
+    return 1;
 }

@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 
-void write_results(int N, float t[], float r[], float phi[], float p[], float l[], float x[], float y[], float U[], char* fileName){
+void write_results(int N, float t[], float x[], float y[], char* fileName){
 
     FILE * outfile = fopen(fileName, "w");
 
-    fprintf(outfile, "t,r,phi,p,l,x,y,U\n");
+    fprintf(outfile, "t,r,phi,p,l,x,y\n");
 
     for (int i = 0; i < N; i++)
     {
-        fprintf(outfile, "%E,%E,%E,%E,%E,%E,%E,%E\n", t[i], r[i], phi[i], p[i], l[i], x[i], y[i], U[i]);
+        fprintf(outfile, "%E,%E,%E\n", t[i], x[i], y[i]);
         //printf("%f", t[i]);
     }
 

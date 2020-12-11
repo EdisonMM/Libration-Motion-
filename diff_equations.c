@@ -30,7 +30,7 @@ float pdot(float t, float m, float M, float R, float r, float phi, float p, floa
 
     float a = pow(l,2)/pow(r,3);
     
-    float b = pow( omega(m, M, R, G), 2) * pow(R, 3) * (r + lamda(m, M) * R * cos(phi)) / pow(S(m, M, R, r, phi, p, l, G), 3);
+    float b = pow( omega(m, M, R, G), 2) * pow(R, 3) * (1 - lamda(m, M)) * (r + lamda(m, M) * R * cos(phi)) / pow(S(m, M, R, r, phi, p, l, G), 3);
 
     float c = pow(omega(m, M, R, G), 2)*pow(R, 3) * lamda(m, M) * (r - (1 - lamda(m, M))*R*cos(phi))/pow(s(m, M, R, r, phi, p, l, G), 3);
 
