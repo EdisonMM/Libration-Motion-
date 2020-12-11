@@ -4,6 +4,7 @@
 #include <math.h>
 
 
+// This function implements the 4th order runge kutta method to solve the differential equations in diff_equations.c
 
 void rungeKutta(float m, float M, float R, float G, float t0, float r0, float phi0, float p0, float l0, float t, float h, float results[]){
 
@@ -63,21 +64,3 @@ void rungeKutta(float m, float M, float R, float G, float t0, float r0, float ph
 
 }
 
-/*
-testing
-int main(){
-
-
-    float results[4];
-
-    rungeKutta(1, 1, 1, 6, 0, 1, 0, 1, 1, 2, 0.2, results);
-
-    for (int i=0; i<4; i++)
-    {
-        printf("%f", results[i]);
-    }
-
-
-    return 0;
-}
-*/

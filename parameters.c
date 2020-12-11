@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+//defining the parameters
+
 float k(float m, float M)
 {
     return m/M;

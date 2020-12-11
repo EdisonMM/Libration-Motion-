@@ -1,23 +1,22 @@
-#include "parameters.h"
-#include "diff_equations.h"
-#include "helper_subroutines.h"
-#include "rungeKutta.h"
-#include "potential.h"
+
 #include "gradient.h"
 #include "stable_orbits.h"
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
+
 
 int main(int argc, char* argv[]){
 
+    //Initialize parameters
     float t0, tmax, p0, l0, m, M, R, G, h, xmin, xmax, ymin, ymax;
     int N;
 
+    //default mass values
     m = 1;
     M = 10;
 
+    // getting mass values if provided by the user
     char* str1 = "-m";
     char* str2 = "-M";
 
@@ -36,22 +35,20 @@ int main(int argc, char* argv[]){
 
     }
 
+    //Initializing parameters
     t0 = 0;
     tmax = 100;
-    //r0 = 1;
-    //phi0 = 0;
     p0 = 0;
     l0 = 0;
     R = 1;
     G = 6.67e-11;
 
-    //Number of time steps
     N = 100;
     h = 0.2;
-    xmin = -1.4;
-    ymin = -1.4;
-    xmax = 1.4;
-    ymax = 1.4;
+    xmin = -1.5;
+    ymin = -1.5;
+    xmax = 1.5;
+    ymax = 1.5;
 
     //Lagrange Points L4 and L5
     
@@ -63,12 +60,15 @@ int main(int argc, char* argv[]){
     float x5 = x4;
     float y5 = -y4;
 
+    //Computing the gradient of the potential
+
+    compute_gradient(m, M, R, G, xmin, xmax, ymin, ymax, p0, l0, 0.6*h);
+
+    //Computing the orbits near L4 and L5
     l4_orbit(x4, y4, 0, m, M, R, G, t0, tmax, N, 0.1*h);
     l5_orbit(x5, y5, 0, m, M, R, G, t0, tmax, N, 0.1*h);
 
-    //write_parameters(N, t0, tmax, r0, phi0, p0, l0, m, M, R, G, h);
 
-    compute_gradient(m, M, R, G, xmin, xmax, ymin, ymax, p0, l0, 0.6*h);
 
     return 0;
 

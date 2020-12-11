@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+//writing three arrays into a csv file
 void write_results(int N, float t[], float x[], float y[], char* fileName){
 
     FILE * outfile = fopen(fileName, "w");
@@ -11,7 +11,7 @@ void write_results(int N, float t[], float x[], float y[], char* fileName){
     for (int i = 0; i < N; i++)
     {
         fprintf(outfile, "%E,%E,%E\n", t[i], x[i], y[i]);
-        //printf("%f", t[i]);
+
     }
 
 
@@ -20,6 +20,8 @@ void write_results(int N, float t[], float x[], float y[], char* fileName){
     return;
 }
 
+
+//writing gradient into a csv file
 void write_gradient(int N, float x[], float y[], float gdx[], float gdy[]){
 
 
@@ -38,6 +40,7 @@ void write_gradient(int N, float x[], float y[], float gdx[], float gdy[]){
     return;
 }
 
+//writing parameters to a txt file
 void write_parameters(int N, float t0, float tmax, float r0, float phi0, float p0, float l0, float m, float M, float R, float G, float h)
 {
     FILE * outfile = fopen("parameters.txt", "w");
